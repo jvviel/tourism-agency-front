@@ -1,0 +1,49 @@
+<div class="container">
+  <h2 class="text-center">Despesas</h2>
+  <button class="btn btn-success"
+  style="margin-left: 10px;" (click)="showDialog()"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>
+  <div class="ui-g-12">
+    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #fa type="text" pInputText size="20" placeholder="Busca..." maxlength="10">
+    </div>
+  <p-dataTable [value]="despesas" [paginator]="true" [rows]="8"
+  [responsive]="true" emptyMessage="Nenhuma despesa encontrada..." [globalFilter]="fa"
+  [rowsPerPageOptions]="['8','15', '20', '30', '50', '100']">
+  <p-column styleClass="tabela-acao" header="Ações">
+      <ng-template pTemplate="body" let-desp="rowData">
+          <button class="btn btn-danger" pTooltip="Remover" tooltipPosition="bottom"
+          (click)="confirmarExclusao(desp)">
+            <i class="fa fa-trash"></i></button>
+          <button class="btn btn-primary" style="margin-left: 5px;" pTooltip="Alterar"
+          tooltipPosition="bottom" (click)="selecionar(desp)">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+      </ng-template>
+    </p-column>
+  <p-column field="descricao" header="Descrição" class="tabela-center"></p-column>
+  <p-column field="valor" header="Valor" styleClass="text-center"></p-column>
+  </p-dataTable>
+</div>
+</div>
+
+<p-dialog header="Despesas" [(visible)]="display" [width]="500" [modal]="true"
+[draggable]="false">
+
+    <div class="ui-sm-12 ui-md-12 ui-g-12">
+        <span class="ui-float-label">
+    <input id="float-input" type="text" size="35" pInputText name="descricao"
+    maxlength="50" [(ngModel)]="newDespesa.descricao" required>
+    <label for="float-input">Descrição</label>
+    </span>
+    <br>
+    <span class="ui-float-label">
+      <input id="float-input-2" type="text" size="20" pInputText name="valor"
+      maxlength="15" [(ngModel)]="newDespesa.valor" required>
+      <label for="float-input-2">Valor</label>
+      </span>
+<br>
+<button class="btn btn-outline-success" (click)="gravar()">Gravar</button>
+<button class="btn btn-outline-danger" (click)="fecharDialog()" style="margin-left: 5px;">Fechar</button>
+</div>
+
+</p-dialog>

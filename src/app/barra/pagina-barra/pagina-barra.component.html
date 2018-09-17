@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(21, 101, 192, 0.856);">
+  
+  <div class="imagem">
+
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Viagens <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Pacotes <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Sobre <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="abrirMenu()"> Cadastros <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Relatórios <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </form>
+  </div>
+  
+</nav>
+
+<p-sidebar [(visible)]="menu" position="right" [baseZIndex]="10000">
+  <h1 class="text-center">Cadastros</h1>
+  <div class="ui-sm-12 ui-md-12 ui-g-12">
+  <a href="/categorias"><button class="btn btn-outline-success btn-lg btn-block">
+     Categorias </button></a>
+  </div>
+  <div class="ui-sm-12 ui-md-12 ui-g-12">
+  <a href="/cidades"><button class="btn btn-outline-success btn-lg btn-block">
+     Cidades </button></a>
+</div>
+<div class="ui-sm-12 ui-md-12 ui-g-12">
+    <a href="/hoteis"><button class="btn btn-outline-success btn-lg btn-block"> 
+      Hoteis </button></a>
+</div>
+<div class="ui-sm-12 ui-md-12 ui-g-12">
+  <a href="#"><button class="btn btn-outline-success btn-lg btn-block"> 
+    Viagens </button></a>
+</div>
+</p-sidebar>

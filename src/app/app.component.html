@@ -1,0 +1,13 @@
+<ng2-toasty></ng2-toasty>
+<div class="container">
+<p-confirmDialog header="Confirmação" icon="fa fa-question-circle" #confirmacao>
+    <p-footer>
+        <button class="btn btn-success" type="button"
+        (click)="confirmacao.accept()">Sim</button>
+        <button class="btn btn-danger" type="button"
+        (click)="confirmacao.reject()" style="margin-left: 7px;">Não</button>
+    </p-footer>
+</p-confirmDialog>
+</div>
+<app-pagina-barra></app-pagina-barra>
+<app-pagina-pacotes></app-pagina-pacotes>

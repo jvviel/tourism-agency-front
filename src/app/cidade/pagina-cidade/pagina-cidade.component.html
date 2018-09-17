@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 class="text-center">Cidades</h2>
+  <button class="btn btn-success"
+  style="margin-left: 10px;" (click)="showDialog()"><i class="fa fa-plus" aria-hidden="true"></i> Novo</button>
+  <div class="ui-g-12">
+    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #fa type="text" pInputText size="20" placeholder="Busca..." maxlength="10">
+    </div>
+  <p-dataTable [value]="cidades" [paginator]="true" [rows]="8"
+  [responsive]="true" emptyMessage="Nenhuma cidade encontrada..." [globalFilter]="fa"
+  [rowsPerPageOptions]="['8','15', '20', '30', '50', '100']">
+  <p-column styleClass="tabela-acao" header="Ações">
+      <ng-template pTemplate="body" let-cid="rowData">
+          <button class="btn btn-danger" pTooltip="Remover" tooltipPosition="bottom"
+          (click)="confirmarExclusao(cid)">
+            <i class="fa fa-trash"></i></button>
+          <button class="btn btn-primary" style="margin-left: 5px;" pTooltip="Alterar"
+          tooltipPosition="bottom" (click)="selecionar(cid)">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+      </ng-template>
+    </p-column>
+  <p-column field="descricao" header="Cidade" class="tabela-center"></p-column>
+  <p-column field="estado" header="Estado"></p-column>
+  </p-dataTable>
+</div>
+</div>
+
+<p-dialog header="Cidade" [(visible)]="display" [width]="500" [modal]="true"
+[draggable]="false">
+  <form name="formValida" #validacao="ngForm">
+    <div class="ui-sm-12 ui-md-12 ui-g-12 ui-fluid">
+      <label>Cidade</label>
+    <input id="float-input" type="text" pInputText name="descricao"
+    maxlength="50" [(ngModel)]="newCidade.descricao" required>
+  </div>
+    <div class="ui-sm-12 ui-md-8 ui-fluid">
+    <label>Estado</label>
+      <input id="float-input-2" type="text" pInputText name="estado"
+      maxlength="2" [(ngModel)]="newCidade.estado" required>
+    </div>
+  </form>
+<br>
+<div class="ui-sm-4 ui-md-4 ui-g-4">
+    <button class="btn btn-success btn-lg btn-block"
+    [disabled]="!validacao.valid" (click)="gravar()">Gravar</button>
+    </div>
+    <div class="ui-sm-4 ui-md-4 ui-g-4">
+    <button class="btn btn-danger btn-lg btn-block" (click)="fecharDialog()" style="margin-left: 5px;">Fechar</button>
+    </div>
+
+</p-dialog>

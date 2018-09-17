@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="text-center">Cadastro de Clientes</h2>
+  <br>
+  <p-fieldset legend="Detalhes">
+  <div class="ui-sm-12 ui-g-6 ui-fluid">
+    <label>Nome</label>
+      <input id="float-input" type="text" pInputText name="descricao"
+        maxlength="50" placeholder="Qual é o seu nome?" [(ngModel)]="newCliente.nome">
+  </div>
+  <div class="ui-sm-12 ui-g-3 ui-fluid">
+    <label>RG</label>
+    <p-inputMask mask="99.999.999-9" placeholder="Informe seu RG"
+    [(ngModel)]="newCliente.rg"></p-inputMask>
+  </div>
+  <div class="ui-sm-12 ui-g-3 ui-fluid">
+    <label>CPF</label>
+    <p-inputMask mask="999.999.999-99" placeholder="Informe seu CPF"
+    [(ngModel)]="newCliente.cpf"></p-inputMask>
+  </div>
+  <div class="ui-sm-12 ui-g-6 ui-fluid">
+    <label>Email</label>
+      <input type="text" pInputText name="email"
+        maxlength="50" placeholder="Possui email?" [(ngModel)]="newCliente.email">
+  </div>
+  <div class="ui-sm-12 ui-g-3 ui-fluid">
+    <label>Telefone</label>
+    <p-inputMask mask="(99)9999-9999" placeholder="Número para contato?"
+    [(ngModel)]="newCliente.telefone"></p-inputMask>
+  </div>
+  <div class="ui-sm-12 ui-g-3 ui-fluid">
+    <label>Celular</label>
+    <p-inputMask mask="(99)99999-9999" placeholder="Contato direto com você?"
+    [(ngModel)]="newCliente.celular"></p-inputMask>
+  </div>
+  <div class="ui-sm-12 ui-g-6 ui-fluid">
+    <label>Senha</label>
+      <input type="password" pPassword name="senha"
+        maxlength="50" placeholder="Estamos acabando, informe uma senha para acesso..."
+        [(ngModel)]="newCliente.senha">
+  </div>
+  <div class="ui-sm-12 ui-g-6 ui-fluid">
+    <label>Confirmação Senha</label>
+      <input type="password" pPassword name="cSenha"
+        maxlength="50" 
+        placeholder="Repita a senha por favor, para garantirmos sua integridade!"
+        [(ngModel)]="senha">
+  </div>
+  <div class="ui-sm-12 ui-md-3 ui-g-3 ui-fluid">
+    <button class="btn btn-success btn-block" (click)="verificaSenha()">Gravar</button>
+  </div>
+    <div class="ui-sm-12 ui-md-3 ui-g-3 ui-fluid">
+    <button class="btn btn-danger btn-block">Voltar para Login</button>
+  </div>
+</p-fieldset>
+</div>
